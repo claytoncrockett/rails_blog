@@ -13,9 +13,10 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
+
     if @page.save
       redirect_to page_path(@page)
-    else 
+    else
       render :new
     end
   end
@@ -24,6 +25,5 @@ class PagesController < ApplicationController
     def page_params
       params.require(:page).permit(:title, :body, :author)
     end
-
 
 end
